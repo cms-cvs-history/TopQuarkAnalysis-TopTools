@@ -3,6 +3,7 @@
 <use name=FWCore/ParameterSet>
 <use name=rootcint>
 <use name=root>
+<use name=AnalysisDataFormats/TopObjects>
 
 <export>
   <lib name=TopQuarkAnalysisTopTools>
@@ -11,5 +12,6 @@
   <use name=FWCore/ParameterSet>
   <use name=rootcint>
   <use name=root>
+  <use name=AnalysisDataFormats/TopObjects>
 </export>
 
