@@ -2,7 +2,7 @@
 // Author:  Jan Heyninck
 // Created: Tue Apr  3 17:33:23 PDT 2007
 //
-// $Id: LRHelpFunctions.cc,v 1.14 2007/11/14 09:37:57 speer Exp $
+// $Id: LRHelpFunctions.cc,v 1.15 2008/01/17 12:55:45 speer Exp $
 //
 #include "TopQuarkAnalysis/TopTools/interface/LRHelpFunctions.h"
 #include "TopQuarkAnalysis/TopTools/test/tdrstyle.C"
@@ -370,6 +370,8 @@ double 	LRHelpFunctions::calcLRval(std::vector<double> vals){
   double logLR = 0.;
   for(size_t o=0; o<fObsSoverSplusB.size(); o++){
     double SoverSplusN = fObsSoverSplusB[o]->Eval(vals[o]);
+    if (SoverSplusN<0.000001) SoverSplusN=0.000001;
+    if (SoverSplusN>0.999999) SoverSplusN=0.999999;
     double SoverN = 1./((1./SoverSplusN) - 1.);
     logLR += log(SoverN);
   }  
