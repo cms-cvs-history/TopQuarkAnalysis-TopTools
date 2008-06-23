@@ -1,4 +1,4 @@
-module jetPartonMatch = TtHadEvtJetPartonMatch{          
+module ttHadJetPartonMatch = TtHadEvtJetPartonMatch{          
 
 # sources
   InputTag jets = selectedLayer1TopJets

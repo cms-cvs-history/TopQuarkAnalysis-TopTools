@@ -1,4 +1,4 @@
-module ttSemiEvtJetPartonMatch = TtSemiEvtJetPartonMatch{          
+module ttSemiJetPartonMatch = TtSemiEvtJetPartonMatch{          
 
 # sources
   InputTag jets = selectedLayer1Jets
