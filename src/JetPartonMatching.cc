@@ -1,5 +1,6 @@
 #include "TopQuarkAnalysis/TopTools/interface/JetPartonMatching.h"
 
+#include <algorithm>
 #include <Math/VectorUtil.h>
 
 JetPartonMatching::JetPartonMatching(const std::vector<const reco::Candidate*>& p, const std::vector<reco::GenJet>& j,
@@ -50,12 +51,25 @@ JetPartonMatching::calculate()
   // in case of unambiguousOnly algorithmm
   if(algorithm_==unambiguousOnly) useMaxDist_=true;
   
+  // check if there are empty partons in
+  // the vector, which happpens if the 
+  // event is not ttbar or the decay is 
+  // not as expected
+  bool emptyParton=false;
+  for(unsigned int ip=0; ip<partons.size(); ++ip){
+    if( partons[ip]->pdgId() ==0 ){
+      emptyParton=true;
+      break;
+    }
+  }
+
   // switch algorithm, default is to match
   // on the minimal sum of the distance 
   // if jets is empty fill match with blanks
-  if( jets.empty() )
+  if( jets.empty() || emptyParton ){
     for(unsigned int ip=0; ip<partons.size(); ++ip)
       matching.push_back(std::make_pair(ip, -1));
+  }
   else{
     switch(algorithm_){
       
