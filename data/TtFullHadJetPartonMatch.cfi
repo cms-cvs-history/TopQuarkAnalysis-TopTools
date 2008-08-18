@@ -1,11 +1,11 @@
-module ttSemiJetPartonMatch = TtSemiEvtJetPartonMatch{          
+module ttFullHadJetPartonMatch = TtFullHadJetPartonMatch{          
 
 # sources
   InputTag jets = selectedLayer1Jets
 
 #-------------------------------------------------
 # number of jets to be considered in the matching
-# (has to be >= 4, can be set to -1 if you want to 
+# (has to be >= 6, can be set to -1 if you want to 
 # take all)
 #-------------------------------------------------
   uint32 nJets = -1
