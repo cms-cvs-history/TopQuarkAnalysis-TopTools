@@ -81,7 +81,7 @@ TtJetPartonMatch<C>::produce(edm::Event& evt, const edm::EventSetup& setup)
   for(unsigned int ij=0; ij<topJets->size(); ++ij) {
     if(nJets_>=(int)partons.size()){ if((int)ij==nJets_) break; }
     else{ if(ij==partons.size()) break; }
-    pat::JetType jet = (*topJets)[ij].recJet();
+    pat::Jet jet = (*topJets)[ij];
     jets.push_back( jet );
   }
 
