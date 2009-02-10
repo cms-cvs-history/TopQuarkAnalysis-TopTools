@@ -3,33 +3,21 @@
 
 TtSemiLepJetComb::TtSemiLepJetComb(){}
 
-TtSemiLepJetComb::TtSemiLepJetComb(const std::vector<pat::Jet>& jets, const std::vector<int> cmb,
-				   const math::XYZTLorentzVector& lep, const math::XYZTLorentzVector& neu)
+TtSemiLepJetComb::TtSemiLepJetComb(const std::vector<pat::Jet>& jets, const std::vector<int> cmb, const math::XYZTLorentzVector& lep, const pat::MET& neu)
 { 
   // receive right jet association
   // from jet parton matching
-  hadQJet    = jets[cmb[TtSemiLepEvtPartons::LightQ   ]].p4();
-  hadQBarJet = jets[cmb[TtSemiLepEvtPartons::LightQBar]].p4();
-  hadBJet    = jets[cmb[TtSemiLepEvtPartons::HadB     ]].p4();
-  lepBJet    = jets[cmb[TtSemiLepEvtPartons::LepB     ]].p4();
+ 
+  hadQJet     = jets[cmb[TtSemiLepEvtPartons::LightQ   ]];
+  hadQBarJet  = jets[cmb[TtSemiLepEvtPartons::LightQBar]];
+  hadBJet     = jets[cmb[TtSemiLepEvtPartons::HadB     ]];
+  lepBJet     = jets[cmb[TtSemiLepEvtPartons::LepB     ]]; 
   lepton     = lep;
   neutrino   = neu;
   deduceMothers();
+
 }
 
-TtSemiLepJetComb::TtSemiLepJetComb(const std::vector<pat::Jet>& jets, const std::vector<int> cmb,
-			     const math::XYZTLorentzVector& lep)
-{ 
-  // receive right jet association
-  // from jet parton matching
-  hadQJet    = jets[cmb[TtSemiLepEvtPartons::LightQ   ]].p4();
-  hadQBarJet = jets[cmb[TtSemiLepEvtPartons::LightQBar]].p4();
-  hadBJet    = jets[cmb[TtSemiLepEvtPartons::HadB     ]].p4();
-  lepBJet    = jets[cmb[TtSemiLepEvtPartons::LepB     ]].p4();
-  lepton     = lep;
-  neutrino   = math::XYZTLorentzVector(0, 0, 0, 0);
-  deduceMothers();
-}
 
 TtSemiLepJetComb::~TtSemiLepJetComb() 
 {
@@ -38,8 +26,8 @@ TtSemiLepJetComb::~TtSemiLepJetComb()
 void 
 TtSemiLepJetComb::deduceMothers()
 {
-  hadW   = hadQJet + hadQBarJet;
-  lepW   = lepton + neutrino;
-  hadTop = hadW + hadBJet;
-  lepTop = lepW + lepBJet;
+  hadW   = hadQJet.p4() + hadQBarJet.p4();
+  lepW   = lepton + neutrino.p4();
+  hadTop = hadW + hadBJet.p4();
+  lepTop = lepW + lepBJet.p4();
 }
