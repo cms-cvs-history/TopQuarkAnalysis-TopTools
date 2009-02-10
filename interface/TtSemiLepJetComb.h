@@ -119,15 +119,8 @@ public:
   double DeltaThetaLepToplepton() const { return ROOT::Math::VectorUtil::Angle(lepTop, lepton); }
  
   double DeltaRLepTopneutrino() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, neutrino.p4()); }
-  double DeltaPhiLepTopneutrino() const { 
-
-    //std::cout << "DeltaPhi(lepTop, neutrino.p4()" << ROOT::Math::VectorUtil::DeltaPhi(lepTop, neutrino.p4()) << std::endl;
-    //std::cout << "neutrino.p4().Phi()" << neutrino.p4().Phi() << std::endl;
-    return ROOT::Math::VectorUtil::DeltaPhi(lepTop, neutrino.p4()); 
-  }
-  double DeltaThetaLepTopneutrino() const { 
-    return ROOT::Math::VectorUtil::Angle(lepTop, neutrino.p4()); 
-  }
+  double DeltaPhiLepTopneutrino() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, neutrino.p4()); }
+  double DeltaThetaLepTopneutrino() const { return ROOT::Math::VectorUtil::Angle(lepTop, neutrino.p4()); }
  
   double DeltaRLepblepton() const { return ROOT::Math::VectorUtil::DeltaR(lepBJet.p4(), lepton); }
   double DeltaPhiLepblepton() const { return ROOT::Math::VectorUtil::DeltaPhi(lepBJet.p4(), lepton); }
