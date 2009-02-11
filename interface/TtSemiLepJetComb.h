@@ -29,118 +29,117 @@ public:
   double massLepW() const { return lepW.M(); }
   double massLepTop() const { return lepTop.M(); }
 
-  double PtHadTop() const { return hadTop.Pt();}
-  double EtaHadTop() const { return hadTop.Eta();}
-  double PhiHadTop() const { return hadTop.Phi();}
-  double ThetaHadTop() const { return hadTop.Theta();}
+  double ptHadTop() const { return hadTop.Pt();}
+  double etaHadTop() const { return hadTop.Eta();}
+  double phiHadTop() const { return hadTop.Phi();}
+  double thetaHadTop() const { return hadTop.Theta();}
 
-  double PtLepTop() const { return lepTop.Pt();}
-  double EtaLepTop() const { return lepTop.Eta();}
-  double PhiLepTop() const { return lepTop.Phi();}
-  double ThetaLepTop() const { return lepTop.Theta();}
+  double ptLepTop() const { return lepTop.Pt();}
+  double etaLepTop() const { return lepTop.Eta();}
+  double phiLepTop() const { return lepTop.Phi();}
+  double thetaLepTop() const { return lepTop.Theta();}
 
-  double PtHadW() const { return hadW.Pt();}
-  double EtaHadW() const { return hadW.Eta();}
-  double PhiHadW() const { return hadW.Phi();}
-  double ThetaHadW() const { return hadW.Theta();}
+  double ptHadW() const { return hadW.Pt();}
+  double etaHadW() const { return hadW.Eta();}
+  double phiHadW() const { return hadW.Phi();}
+  double thetaHadW() const { return hadW.Theta();}
 
-  double PtLepW() const { return lepW.Pt();}
-  double EtaLepW() const { return lepW.Eta();}
-  double PhiLepW() const { return lepW.Phi();}
-  double ThetaLepW() const { return lepW.Theta();}
+  double ptLepW() const { return lepW.Pt();}
+  double etaLepW() const { return lepW.Eta();}
+  double phiLepW() const { return lepW.Phi();}
+  double thetaLepW() const { return lepW.Theta();}
 
-  double PtHadb() const { return hadBJet.p4().Pt();}
-  double EtaHadb() const { return hadBJet.p4().Eta();}
-  double PhiHadb() const { return hadBJet.p4().Phi();}
-  double ThetaHadb() const { return hadBJet.p4().Theta();}
+  double ptHadb() const { return hadBJet.p4().Pt();}
+  double etaHadb() const { return hadBJet.p4().Eta();}
+  double phiHadb() const { return hadBJet.p4().Phi();}
+  double thetaHadb() const { return hadBJet.p4().Theta();}
 
-  double PtLepb() const { return lepBJet.p4().Pt();}
-  double EtaLepb() const { return lepBJet.p4().Eta();}
-  double PhiLepb() const { return lepBJet.p4().Phi();}
-  double ThetaLepb() const { return lepBJet.p4().Theta();}
+  double ptLepb() const { return lepBJet.p4().Pt();}
+  double etaLepb() const { return lepBJet.p4().Eta();}
+  double phiLepb() const { return lepBJet.p4().Phi();}
+  double thetaLepb() const { return lepBJet.p4().Theta();}
 
-  double Pthadq() const { return hadQJet.p4().Pt();}
-  double Etahadq() const { return hadQJet.p4().Eta();}
-  double Phihadq() const { return hadQJet.p4().Phi();}
-  double Thetahadq() const { return hadQJet.p4().Theta();}
+  double pthadq() const { return hadQJet.p4().Pt();}
+  double etahadq() const { return hadQJet.p4().Eta();}
+  double phihadq() const { return hadQJet.p4().Phi();}
+  double thetahadq() const { return hadQJet.p4().Theta();}
 
-  double PthadqBar() const { return hadQBarJet.p4().Pt();}
-  double EtahadqBar() const { return hadQBarJet.p4().Eta();}
-  double PhihadqBar() const { return hadQBarJet.p4().Phi();}
-  double ThetahadqBar() const { return hadQBarJet.p4().Theta();}
+  double pthadqBar() const { return hadQBarJet.p4().Pt();}
+  double etahadqBar() const { return hadQBarJet.p4().Eta();}
+  double phihadqBar() const { return hadQBarJet.p4().Phi();}
+  double thetahadqBar() const { return hadQBarJet.p4().Theta();}
 
-  double Ptlepton() const { return lepton.Pt();}
-  double Etalepton() const { return lepton.Eta();}
-  double Philepton() const { return lepton.Phi();}
-  double Thetalepton() const { return lepton.Theta();}
+  double ptlepton() const { return lepton.Pt();}
+  double etalepton() const { return lepton.Eta();}
+  double philepton() const { return lepton.Phi();}
+  double thetalepton() const { return lepton.Theta();}
 
-  double Ptneutrino() const { return neutrino.p4().Pt();}
-  double Etaneutrino() const { return neutrino.p4().Eta();}
-  double Phineutrino() const { return neutrino.p4().Phi();}
-  double Thetaneutrino() const { return neutrino.p4().Theta();}
+  double ptneutrino() const { return neutrino.p4().Pt();}
+  double etaneutrino() const { return neutrino.p4().Eta();}
+  double phineutrino() const { return neutrino.p4().Phi();}
+  double thetaneutrino() const { return neutrino.p4().Theta();}
 
-  //2-particle kinematics
+  //2-particle kinematics  
+  double deltaRHadTopLepTop() const { return ROOT::Math::VectorUtil::DeltaR(hadTop, lepTop); }
+  double deltaPhiHadTopLepTop() const { return ROOT::Math::VectorUtil::DeltaPhi(hadTop, lepTop); }
+  double deltaThetaHadTopLepTop() const { return ROOT::Math::VectorUtil::Angle(hadTop, lepTop); }
+  double deltaMassHadTopLepTop() const { return hadTop.M() - lepTop.M(); }
+
+  double deltaRHadTopHadW() const { return ROOT::Math::VectorUtil::DeltaR(hadTop, hadW); }
+  double deltaPhiHadTopHadW() const { return ROOT::Math::VectorUtil::DeltaPhi(hadTop, hadW); }
+  double deltaThetaHadTopHadW() const { return ROOT::Math::VectorUtil::Angle(hadTop, hadW); }
+
+  double deltaRLepTopLepW() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, lepW); }
+  double deltaPhiLepTopLepW() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, lepW); }
+  double deltaThetaLepTopLepW() const { return ROOT::Math::VectorUtil::Angle(lepTop, lepW); }
+
+  double deltaRHadTopHadb() const { return ROOT::Math::VectorUtil::DeltaR(hadTop, hadBJet.p4()); }
+  double deltaPhiHadTopHadb() const { return ROOT::Math::VectorUtil::DeltaPhi(hadTop, hadBJet.p4()); }
+  double deltaThetaHadTopHadb() const { return ROOT::Math::VectorUtil::Angle(hadTop, hadBJet.p4()); }
+
+  double deltaRLepTopLepb() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, lepBJet.p4()); }
+  double deltaPhiLepTopLepb() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, lepBJet.p4()); }
+  double deltaThetaLepTopLepb() const { return ROOT::Math::VectorUtil::Angle(lepTop, lepBJet.p4()); }
+ 
+  double deltaRHadWHadb() const { return ROOT::Math::VectorUtil::DeltaR(hadW, hadBJet.p4()); }
+  double deltaPhiHadWHadb() const { return ROOT::Math::VectorUtil::DeltaPhi(hadW, hadBJet.p4()); }
+  double deltaThetaHadWHadb() const { return ROOT::Math::VectorUtil::Angle(hadW, hadBJet.p4()); }
+
+  double deltaRLepWLepb() const { return ROOT::Math::VectorUtil::DeltaR(lepW, lepBJet.p4()); }
+  double deltaPhiLepWLepb() const { return ROOT::Math::VectorUtil::DeltaPhi(lepW, lepBJet.p4()); }
+  double deltaThetaLepWLepb() const { return ROOT::Math::VectorUtil::Angle(lepW, lepBJet.p4()); }
   
-  double DeltaRHadTopLepTop() const { return ROOT::Math::VectorUtil::DeltaR(hadTop, lepTop); }
-  double DeltaPhiHadTopLepTop() const { return ROOT::Math::VectorUtil::DeltaPhi(hadTop, lepTop); }
-  double DeltaThetaHadTopLepTop() const { return ROOT::Math::VectorUtil::Angle(hadTop, lepTop); }
-  double DeltaMassHadTopLepTop() const { return hadTop.M() - lepTop.M(); }
+  double deltaRHadQHadQBar() const { return ROOT::Math::VectorUtil::DeltaR(hadQJet.p4(), hadQBarJet.p4()); }
+  double deltaPhiHadQHadQBar() const { return ROOT::Math::VectorUtil::DeltaPhi(hadQJet.p4(), hadQBarJet.p4()); }
+  double deltaThetaHadQHadQBar() const { return ROOT::Math::VectorUtil::Angle(hadQJet.p4(), hadQBarJet.p4()); }
 
-  double DeltaRHadTopHadW() const { return ROOT::Math::VectorUtil::DeltaR(hadTop, hadW); }
-  double DeltaPhiHadTopHadW() const { return ROOT::Math::VectorUtil::DeltaPhi(hadTop, hadW); }
-  double DeltaThetaHadTopHadW() const { return ROOT::Math::VectorUtil::Angle(hadTop, hadW); }
-
-  double DeltaRLepTopLepW() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, lepW); }
-  double DeltaPhiLepTopLepW() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, lepW); }
-  double DeltaThetaLepTopLepW() const { return ROOT::Math::VectorUtil::Angle(lepTop, lepW); }
-
-  double DeltaRHadTopHadb() const { return ROOT::Math::VectorUtil::DeltaR(hadTop, hadBJet.p4()); }
-  double DeltaPhiHadTopHadb() const { return ROOT::Math::VectorUtil::DeltaPhi(hadTop, hadBJet.p4()); }
-  double DeltaThetaHadTopHadb() const { return ROOT::Math::VectorUtil::Angle(hadTop, hadBJet.p4()); }
-
-  double DeltaRLepTopLepb() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, lepBJet.p4()); }
-  double DeltaPhiLepTopLepb() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, lepBJet.p4()); }
-  double DeltaThetaLepTopLepb() const { return ROOT::Math::VectorUtil::Angle(lepTop, lepBJet.p4()); }
+  double deltaRLepToplepton() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, lepton); }
+  double deltaPhiLepToplepton() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, lepton); }
+  double deltaThetaLepToplepton() const { return ROOT::Math::VectorUtil::Angle(lepTop, lepton); }
  
-  double DeltaRHadWHadb() const { return ROOT::Math::VectorUtil::DeltaR(hadW, hadBJet.p4()); }
-  double DeltaPhiHadWHadb() const { return ROOT::Math::VectorUtil::DeltaPhi(hadW, hadBJet.p4()); }
-  double DeltaThetaHadWHadb() const { return ROOT::Math::VectorUtil::Angle(hadW, hadBJet.p4()); }
-
-  double DeltaRLepWLepb() const { return ROOT::Math::VectorUtil::DeltaR(lepW, lepBJet.p4()); }
-  double DeltaPhiLepWLepb() const { return ROOT::Math::VectorUtil::DeltaPhi(lepW, lepBJet.p4()); }
-  double DeltaThetaLepWLepb() const { return ROOT::Math::VectorUtil::Angle(lepW, lepBJet.p4()); }
-  
-  double DeltaRHadQHadQBar() const { return ROOT::Math::VectorUtil::DeltaR(hadQJet.p4(), hadQBarJet.p4()); }
-  double DeltaPhiHadQHadQBar() const { return ROOT::Math::VectorUtil::DeltaPhi(hadQJet.p4(), hadQBarJet.p4()); }
-  double DeltaThetaHadQHadQBar() const { return ROOT::Math::VectorUtil::Angle(hadQJet.p4(), hadQBarJet.p4()); }
-
-  double DeltaRLepToplepton() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, lepton); }
-  double DeltaPhiLepToplepton() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, lepton); }
-  double DeltaThetaLepToplepton() const { return ROOT::Math::VectorUtil::Angle(lepTop, lepton); }
+  double deltaRLepTopneutrino() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, neutrino.p4()); }
+  double deltaPhiLepTopneutrino() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, neutrino.p4()); }
+  double deltaThetaLepTopneutrino() const { return ROOT::Math::VectorUtil::Angle(lepTop, neutrino.p4()); }
  
-  double DeltaRLepTopneutrino() const { return ROOT::Math::VectorUtil::DeltaR(lepTop, neutrino.p4()); }
-  double DeltaPhiLepTopneutrino() const { return ROOT::Math::VectorUtil::DeltaPhi(lepTop, neutrino.p4()); }
-  double DeltaThetaLepTopneutrino() const { return ROOT::Math::VectorUtil::Angle(lepTop, neutrino.p4()); }
+  double deltaRLepblepton() const { return ROOT::Math::VectorUtil::DeltaR(lepBJet.p4(), lepton); }
+  double deltaPhiLepblepton() const { return ROOT::Math::VectorUtil::DeltaPhi(lepBJet.p4(), lepton); }
+  double deltaThetaLepblepton() const { return ROOT::Math::VectorUtil::Angle(lepBJet.p4(), lepton); }
  
-  double DeltaRLepblepton() const { return ROOT::Math::VectorUtil::DeltaR(lepBJet.p4(), lepton); }
-  double DeltaPhiLepblepton() const { return ROOT::Math::VectorUtil::DeltaPhi(lepBJet.p4(), lepton); }
-  double DeltaThetaLepblepton() const { return ROOT::Math::VectorUtil::Angle(lepBJet.p4(), lepton); }
+  double deltaRLepbneutrino() const { return ROOT::Math::VectorUtil::DeltaR(lepBJet.p4(), neutrino.p4()); }
+  double deltaPhiLepbneutrino() const { return ROOT::Math::VectorUtil::DeltaPhi(lepBJet.p4(), neutrino.p4()); }
+  double deltaThetaLepbneutrino() const { return ROOT::Math::VectorUtil::Angle(lepBJet.p4(), neutrino.p4()); }
  
-  double DeltaRLepbneutrino() const { return ROOT::Math::VectorUtil::DeltaR(lepBJet.p4(), neutrino.p4()); }
-  double DeltaPhiLepbneutrino() const { return ROOT::Math::VectorUtil::DeltaPhi(lepBJet.p4(), neutrino.p4()); }
-  double DeltaThetaLepbneutrino() const { return ROOT::Math::VectorUtil::Angle(lepBJet.p4(), neutrino.p4()); }
- 
-  double DeltaRleptonneutrino() const { return ROOT::Math::VectorUtil::DeltaR(lepton, neutrino.p4()); }
-  double DeltaPhileptonneutrino() const { return ROOT::Math::VectorUtil::DeltaPhi(lepton, neutrino.p4()); }
-  double DeltaThetaleptonneutrino() const { return ROOT::Math::VectorUtil::Angle(lepton, neutrino.p4()); }
+  double deltaRleptonneutrino() const { return ROOT::Math::VectorUtil::DeltaR(lepton, neutrino.p4()); }
+  double deltaPhileptonneutrino() const { return ROOT::Math::VectorUtil::DeltaPhi(lepton, neutrino.p4()); }
+  double deltaThetaleptonneutrino() const { return ROOT::Math::VectorUtil::Angle(lepton, neutrino.p4()); }
  
   //b-tag information
-  double DeltaBtag1hadBlepB() const { return hadBJet.bDiscriminator("trackCountingHighEffBJetTags")+lepBJet.bDiscriminator("trackCountingHighEffBJetTags"); }
-  double DeltaBtag2hadBlepB() const { return hadBJet.bDiscriminator("trackCountingHighPurBJetTags")+lepBJet.bDiscriminator("trackCountingHighPurBJetTags"); }
-  double DeltaBtag3hadBlepB() const { return hadBJet.bDiscriminator("softMuonBJetTags")+lepBJet.bDiscriminator("softMuonBJetTags"); }
-  double DeltaBtag4hadBlepB() const { return hadBJet.bDiscriminator("simpleSecondaryVertexBJetTags")+lepBJet.bDiscriminator("simpleSecondaryVertexBJetTags"); }
-  double DeltaBtag5hadBlepB() const { return hadBJet.bDiscriminator("combinedSecondaryVertexBJetTags")+lepBJet.bDiscriminator("combinedSecondaryVertexBJetTags"); }
-  double DeltaBtag6hadBlepB() const { return hadBJet.bDiscriminator("impactParameterMVABJetTags")+lepBJet.bDiscriminator("impactParameterMVABJetTags"); }
+  double sumBtag1hadBlepB() const { return hadBJet.bDiscriminator("trackCountingHighEffBJetTags")+lepBJet.bDiscriminator("trackCountingHighEffBJetTags"); }
+  double sumBtag2hadBlepB() const { return hadBJet.bDiscriminator("trackCountingHighPurBJetTags")+lepBJet.bDiscriminator("trackCountingHighPurBJetTags"); }
+  double sumBtag3hadBlepB() const { return hadBJet.bDiscriminator("softMuonBJetTags")+lepBJet.bDiscriminator("softMuonBJetTags"); }
+  double sumBtag4hadBlepB() const { return hadBJet.bDiscriminator("simpleSecondaryVertexBJetTags")+lepBJet.bDiscriminator("simpleSecondaryVertexBJetTags"); }
+  double sumBtag5hadBlepB() const { return hadBJet.bDiscriminator("combinedSecondaryVertexBJetTags")+lepBJet.bDiscriminator("combinedSecondaryVertexBJetTags"); }
+  double sumBtag6hadBlepB() const { return hadBJet.bDiscriminator("impactParameterMVABJetTags")+lepBJet.bDiscriminator("impactParameterMVABJetTags"); }
 
 private:
 
