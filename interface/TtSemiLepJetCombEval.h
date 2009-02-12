@@ -27,9 +27,6 @@ inline double evaluateTtSemiLepJetComb(PhysicsTools::MVAComputerCache& mvaComput
   values.push_back( PhysicsTools::Variable::Value("massLepW",   jetComb.massLepW()   ) );
   values.push_back( PhysicsTools::Variable::Value("massLepTop",   jetComb.massLepTop()   ) );
   values.push_back( PhysicsTools::Variable::Value("deltaMassHadTopLepTop",   jetComb.deltaMassHadTopLepTop()   ) );
-
-  values.push_back( PhysicsTools::Variable::Value("relPtHadTop",   jetComb.relPtHadTop()   ) );
-  values.push_back( PhysicsTools::Variable::Value("relPtBJets",   jetComb.relPtBJets()   ) );
   values.push_back( PhysicsTools::Variable::Value("sumBTag1HadBLepB",   jetComb.sumBTag1HadBLepB()   ) );
 
 
