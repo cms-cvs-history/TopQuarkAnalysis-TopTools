@@ -134,13 +134,8 @@ public:
   double deltaThetaLeptonNeutrino() const { return ROOT::Math::VectorUtil::Angle(lepton, neutrino.p4()); }
  
   //Extra variables
-  double relPtHadTop() const { 
-    std::cout << hadTop.Pt()/(hadTop.Pt()+(hadQJet.p4()+hadQBarJet.p4()+lepBJet.p4()).Pt()+(hadQJet.p4()+hadBJet.p4()+lepBJet.p4()).Pt()+(hadBJet.p4()+hadQBarJet.p4()+lepBJet.p4()).Pt()) <<  std::endl;
-    return  hadTop.Pt()/(hadTop.Pt()+(hadQJet.p4()+hadQBarJet.p4()+lepBJet.p4()).Pt()+(hadQJet.p4()+hadBJet.p4()+lepBJet.p4()).Pt()+(hadBJet.p4()+hadQBarJet.p4()+lepBJet.p4()).Pt()); }
-  double relPtBJets() const { 
-    std::cout << (hadBJet.p4().Pt()+lepBJet.p4().Pt())/(hadQBarJet.p4().Pt()+hadQJet.p4().Pt()) <<  std::endl;;
-    return (hadBJet.p4().Pt()+lepBJet.p4().Pt())/(hadQBarJet.p4().Pt()+hadQJet.p4().Pt());
-  } 
+  double relPtHadTop() const { return  hadTop.Pt()/(hadTop.Pt()+(hadQJet.p4()+hadQBarJet.p4()+lepBJet.p4()).Pt()+(hadQJet.p4()+hadBJet.p4()+lepBJet.p4()).Pt()+(hadBJet.p4()+hadQBarJet.p4()+lepBJet.p4()).Pt()); }
+  double relPtBJets() const { return (hadBJet.p4().Pt()+lepBJet.p4().Pt())/(hadQBarJet.p4().Pt()+hadQJet.p4().Pt());  } 
 
 
   //b-tag information
