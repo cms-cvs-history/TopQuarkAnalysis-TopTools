@@ -41,12 +41,6 @@ inline double evaluateTtSemiLepJetComb(PhysicsTools::MVAComputerCache& mvaComput
   values.push_back( PhysicsTools::Variable::Value("etaHadW"  , jetComb.wBosonVar(kHad, kEta  ) ));
   values.push_back( PhysicsTools::Variable::Value("phiHadW"  , jetComb.wBosonVar(kHad, kPhi  ) ));
   values.push_back( PhysicsTools::Variable::Value("thetaHadW", jetComb.wBosonVar(kHad, kTheta) ));
-  // leptonic W boson
-  values.push_back( PhysicsTools::Variable::Value("massLepW" , jetComb.wBosonVar(kLep, kMass ) ));
-  values.push_back( PhysicsTools::Variable::Value("ptLepW"   , jetComb.wBosonVar(kLep, kPt   ) ));
-  values.push_back( PhysicsTools::Variable::Value("etaLepW"  , jetComb.wBosonVar(kLep, kEta  ) ));
-  values.push_back( PhysicsTools::Variable::Value("phiLepW"  , jetComb.wBosonVar(kLep, kPhi  ) ));
-  values.push_back( PhysicsTools::Variable::Value("thetaLepW", jetComb.wBosonVar(kLep, kTheta) ));
   // hadronic b quark
   values.push_back( PhysicsTools::Variable::Value("ptHadB"   , jetComb.bQuarkVar(kHad, kPt   ) ));
   values.push_back( PhysicsTools::Variable::Value("etaHadB"  , jetComb.bQuarkVar(kHad, kEta  ) ));
@@ -67,16 +61,6 @@ inline double evaluateTtSemiLepJetComb(PhysicsTools::MVAComputerCache& mvaComput
   values.push_back( PhysicsTools::Variable::Value("etaLightQBar"  , jetComb.lightQVar(true, kEta  ) ));
   values.push_back( PhysicsTools::Variable::Value("phiLightQBar"  , jetComb.lightQVar(true, kPhi  ) ));
   values.push_back( PhysicsTools::Variable::Value("thetaLightQBar", jetComb.lightQVar(true, kTheta) ));
-  // lepton
-  values.push_back( PhysicsTools::Variable::Value("ptLepton"   , jetComb.leptonVar(kPt   ) ));
-  values.push_back( PhysicsTools::Variable::Value("etaLepton"  , jetComb.leptonVar(kEta  ) ));
-  values.push_back( PhysicsTools::Variable::Value("phiLepton"  , jetComb.leptonVar(kPhi  ) ));
-  values.push_back( PhysicsTools::Variable::Value("thetaLepton", jetComb.leptonVar(kTheta) ));
-  // neutrino
-  values.push_back( PhysicsTools::Variable::Value("ptNeutrino"   , jetComb.neutrinoVar(kPt   ) ));
-  values.push_back( PhysicsTools::Variable::Value("etaNeutrino"  , jetComb.neutrinoVar(kEta  ) ));
-  values.push_back( PhysicsTools::Variable::Value("phiNeutrino"  , jetComb.neutrinoVar(kPhi  ) ));
-  values.push_back( PhysicsTools::Variable::Value("thetaNeutrino", jetComb.neutrinoVar(kTheta) ));
   // ----------------------------------------------------------------------
   // compare two candidates of the ttbar system in DeltaM, DeltaR, DeltaPhi or DeltaTheta
   // ----------------------------------------------------------------------
@@ -98,10 +82,6 @@ inline double evaluateTtSemiLepJetComb(PhysicsTools::MVAComputerCache& mvaComput
   values.push_back( PhysicsTools::Variable::Value("deltaRHadQHadQBar"    , jetComb.compareLightQuarks(kDeltaR    ) ));
   values.push_back( PhysicsTools::Variable::Value("deltaPhiHadQHadQBar"  , jetComb.compareLightQuarks(kDeltaPhi  ) ));
   values.push_back( PhysicsTools::Variable::Value("deltaThetaHadQHadQBar", jetComb.compareLightQuarks(kDeltaTheta) ));
-  // lepton and neutrino
-  values.push_back( PhysicsTools::Variable::Value("deltaRLeptonNeutrino"    , jetComb.compareLeptonNeutrino(kDeltaR    ) ));
-  values.push_back( PhysicsTools::Variable::Value("deltaPhiLeptonNeutrino"  , jetComb.compareLeptonNeutrino(kDeltaPhi  ) ));
-  values.push_back( PhysicsTools::Variable::Value("deltaThetaLeptonNeutrino", jetComb.compareLeptonNeutrino(kDeltaTheta) ));
   // the hadronic top and the hadronic W
   values.push_back( PhysicsTools::Variable::Value("deltaMHadTopHadW"    , jetComb.compareTopW(kHad, kHad, kDeltaM    ) ));
   values.push_back( PhysicsTools::Variable::Value("deltaRHadTopHadW"    , jetComb.compareTopW(kHad, kHad, kDeltaR    ) ));
@@ -174,18 +154,10 @@ inline double evaluateTtSemiLepJetComb(PhysicsTools::MVAComputerCache& mvaComput
   values.push_back( PhysicsTools::Variable::Value("deltaRHadWLepton"    , jetComb.compareWLepton(kHad, kDeltaR    ) ));
   values.push_back( PhysicsTools::Variable::Value("deltaPhiHadWLepton"  , jetComb.compareWLepton(kHad, kDeltaPhi  ) ));
   values.push_back( PhysicsTools::Variable::Value("deltaThetaHadWLepton", jetComb.compareWLepton(kHad, kDeltaTheta) ));
-  // the leptonic W and the lepton
-  values.push_back( PhysicsTools::Variable::Value("deltaRLepWLepton"    , jetComb.compareWLepton(kLep, kDeltaR    ) ));
-  values.push_back( PhysicsTools::Variable::Value("deltaPhiLepWLepton"  , jetComb.compareWLepton(kLep, kDeltaPhi  ) ));
-  values.push_back( PhysicsTools::Variable::Value("deltaThetaLepWLepton", jetComb.compareWLepton(kLep, kDeltaTheta) ));
   // the hadronic W and the neutrino
   values.push_back( PhysicsTools::Variable::Value("deltaRHadWNeutrino"    , jetComb.compareWNeutrino(kHad, kDeltaR    ) ));
   values.push_back( PhysicsTools::Variable::Value("deltaPhiHadWNeutrino"  , jetComb.compareWNeutrino(kHad, kDeltaPhi  ) ));
   values.push_back( PhysicsTools::Variable::Value("deltaThetaHadWNeutrino", jetComb.compareWNeutrino(kHad, kDeltaTheta) ));
-  // the leptonic W and the neutrino
-  values.push_back( PhysicsTools::Variable::Value("deltaRLepWNeutrino"    , jetComb.compareWNeutrino(kLep, kDeltaR    ) ));
-  values.push_back( PhysicsTools::Variable::Value("deltaPhiLepWNeutrino"  , jetComb.compareWNeutrino(kLep, kDeltaPhi  ) ));
-  values.push_back( PhysicsTools::Variable::Value("deltaThetaLepWNeutrino", jetComb.compareWNeutrino(kLep, kDeltaTheta) ));
   // the hadronic b and the lepton
   values.push_back( PhysicsTools::Variable::Value("deltaRHadBLepton"    , jetComb.compareBLepton(kHad, kDeltaR    ) ));
   values.push_back( PhysicsTools::Variable::Value("deltaPhiHadBLepton"  , jetComb.compareBLepton(kHad, kDeltaPhi  ) ));
@@ -232,11 +204,6 @@ inline double evaluateTtSemiLepJetComb(PhysicsTools::MVAComputerCache& mvaComput
   values.push_back( PhysicsTools::Variable::Value("bTagSumCombSecondVtx", jetComb.combinedBTags(kCombSecondVtx, kAdd) ));
   values.push_back( PhysicsTools::Variable::Value("bTagSumImpactParaMVA", jetComb.combinedBTags(kImpactParaMVA, kAdd) ));
   // multiplied b-tags of the two b quark candidates
-  values.push_back( PhysicsTools::Variable::Value("bTagProdTrkCntHighEff", jetComb.combinedBTags(kTrkCntHighEff, kMult) ));
-  values.push_back( PhysicsTools::Variable::Value("bTagProdTrkCntHighPur", jetComb.combinedBTags(kTrkCntHighPur, kMult) ));
-  values.push_back( PhysicsTools::Variable::Value("bTagProdSoftMuon"     , jetComb.combinedBTags(kSoftMuon     , kMult) ));
-  values.push_back( PhysicsTools::Variable::Value("bTagProdSimpSecondVtx", jetComb.combinedBTags(kSimpSecondVtx, kMult) ));
-  values.push_back( PhysicsTools::Variable::Value("bTagProdCombSecondVtx", jetComb.combinedBTags(kCombSecondVtx, kMult) ));
   values.push_back( PhysicsTools::Variable::Value("bTagProdImpactParaMVA", jetComb.combinedBTags(kImpactParaMVA, kMult) ));
 
   return mvaComputer->eval( values );
