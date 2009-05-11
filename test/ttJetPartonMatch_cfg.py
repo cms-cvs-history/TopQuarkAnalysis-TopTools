@@ -85,7 +85,7 @@ process.p = cms.Path(process.patDefaultSequence *
 ## configure output module
 process.out = cms.OutputModule("PoolOutputModule",
     SelectEvents   = cms.untracked.PSet(SelectEvents = cms.vstring('p') ),                               
-    fileName = cms.untracked.string('ttSemiLepKinFitProducer.root'),                               
+    fileName = cms.untracked.string('ttJetPartonMatch.root'),                               
     outputCommands = cms.untracked.vstring('drop *')
 )
 process.out.outputCommands += ['keep *_ttFullHadJetPartonMatch_*_*',
