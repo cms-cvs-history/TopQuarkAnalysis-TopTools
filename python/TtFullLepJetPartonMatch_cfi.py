@@ -50,6 +50,12 @@ ttFullLepJetPartonMatch = cms.EDProducer("TtFullLepJetPartonMatch",
     maxNComb = cms.int32(1),
 
     #-------------------------------------------------
+    # partons to be ignored in the matching;
+    # "B", "BBar"
+    #-------------------------------------------------
+    partonsToIgnore = cms.vstring(),
+
+    #-------------------------------------------------
     # verbosity level: 0: no additional printout
     #                  1: print info for each event
     #-------------------------------------------------
