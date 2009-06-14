@@ -59,6 +59,9 @@ class TtJetPartonMatch : public edm::EDProducer {
 
  private:
 
+  /// convert string for algorithm into corresponding enumerator type
+  JetPartonMatching::algorithms readAlgorithm(const std::string& str);
+
   /// event counter for internal use with the verbosity 
   /// level
   int event_;
@@ -72,8 +75,8 @@ class TtJetPartonMatch : public edm::EDProducer {
   /// maximal number of combinations for which the 
   /// matching should be stored
   int maxNComb_;
-  /// choice of algorithm (defined in JetPartonMatching)
-  int algorithm_;
+  /// choice of algorithm
+  JetPartonMatching::algorithms algorithm_;
   /// switch to choose between deltaR/deltaTheta matching
   bool useDeltaR_;
   /// switch to choose whether an outlier rejection 
@@ -92,7 +95,7 @@ TtJetPartonMatch<C>::TtJetPartonMatch(const edm::ParameterSet& cfg): event_(0),
   jets_      (cfg.getParameter<edm::InputTag>            ("jets"           )),
   maxNJets_  (cfg.getParameter<int>                      ("maxNJets"       )),
   maxNComb_  (cfg.getParameter<int>                      ("maxNComb"       )),
-  algorithm_ (cfg.getParameter<int>                      ("algorithm"      )),
+  algorithm_ (readAlgorithm(cfg.getParameter<std::string>("algorithm"      ))),
   useDeltaR_ (cfg.getParameter<bool>                     ("useDeltaR"      )),
   useMaxDist_(cfg.getParameter<bool>                     ("useMaxDist"     )),
   maxDist_   (cfg.getParameter<double>                   ("maxDist"        )),
@@ -177,6 +180,18 @@ TtJetPartonMatch<C>::produce(edm::Event& evt, const edm::EventSetup& setup)
   evt.put(match);
   evt.put(sumPt, "SumPt");
   evt.put(sumDR, "SumDR");
+}
+
+template<typename C>
+JetPartonMatching::algorithms 
+TtJetPartonMatch<C>::readAlgorithm(const std::string& str)
+{
+  if     (str == "totalMinDist"    ) return JetPartonMatching::totalMinDist;
+  else if(str == "minSumDist"      ) return JetPartonMatching::minSumDist;
+  else if(str == "ptOrderedMinDist") return JetPartonMatching::ptOrderedMinDist;
+  else if(str == "unambiguousOnly" ) return JetPartonMatching::unambiguousOnly;
+  else throw cms::Exception("Configuration")
+    << "Chosen algorithm is not supported: " << str << "\n";
 }
 
 #endif
