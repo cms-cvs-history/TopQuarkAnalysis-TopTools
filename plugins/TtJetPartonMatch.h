@@ -13,32 +13,30 @@
 #include "AnalysisDataFormats/TopObjects/interface/TtGenEvent.h"
 #include "TopQuarkAnalysis/TopTools/interface/JetPartonMatching.h"
 
-// ----------------------------------------------------------------------
-// template class for: 
-//
-//  * TtFullHadJetPartonMatch
-//  * TtSemiLepJetPartonMatch
-//  * TtFullLepJetPartonMatch
-//
-//  the class provides plugins for jet-parton matching corresponding 
-//  to the JetPartonMatching class; expected input is one of the 
-//  classes in:
-//
-//  AnalysisDataFormats/TopObjects/interface/TtFullHadEvtPartons.h
-//  AnalysisDataFormats/TopObjects/interface/TtSemiLepEvtPartons.h
-//  AnalysisDataFormats/TopObjects/interface/TtFullLepEvtPartons.h
-//
-//  output is:
-//  * a vector of vectors containing the indices of the jets in the
-//    input collection matched to the partons in the order defined in
-//    the corresponding Tt*EvtPartons class
-//  * a set of vectors with quality parameters of the matching 
-//
-//  the matching can be performed on an arbitrary number of jet 
-//  combinations; per default the combination which matches best 
-//  according to the quality parameters will be stored; the length
-//  of the vectors will be 1 then 
-// ----------------------------------------------------------------------
+/**
+   \class   TtJetPartonMatch TtJetPartonMatch.h "TopQuarkAnalysis/TopTools/plugins/TtJetPartonMatch.h"
+
+   \brief   Template class for plugins for jet parton matching for full leptonic, semi-leptonic & full hadronic ttbar events
+
+   This class provides plugins for jet-parton matching corresponding 
+   to the JetPartonMatching class. The expected input is one of the 
+   classes in:
+
+   AnalysisDataFormats/TopObjects/interface/TtFullHadEvtPartons.h
+   AnalysisDataFormats/TopObjects/interface/TtSemiLepEvtPartons.h
+   AnalysisDataFormats/TopObjects/interface/TtFullLepEvtPartons.h
+
+   The output is:
+    * a vector of vectors containing the indices of the jets in the
+      input collection matched to the partons in the order defined 
+      in the corresponding Tt*EvtPartons class
+    * a set of vectors with quality parameters of the matching 
+
+   The matching can be performed on an arbitrary number of jet 
+   combinations. Per default the combination which matches best 
+   according to the quality parameters will be stored. The length
+   of the vectors will be 1 then. 
+*/
 
 template <typename C>
 class TtJetPartonMatch : public edm::EDProducer {
