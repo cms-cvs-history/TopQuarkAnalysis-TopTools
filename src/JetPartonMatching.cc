@@ -57,6 +57,7 @@ JetPartonMatching::calculate()
   bool emptyParton=false;
   for(unsigned int ip=0; ip<partons.size(); ++ip){
     if( partons[ip]->pdgId() ==0 ){
+      std::cout << "empty parton index : " << ip << std::endl;
       emptyParton=true;
       break;
     }
